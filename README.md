@@ -31,6 +31,7 @@ An SMS text based application that doesn't talk back.
 * [Express](https://expressjs.com/)
 * [Knex](https://knexjs.org/)
 * [SQLite3](https://www.sqlite.org/index.html)
+* [Twilio](https://www.twilio.com/)
 
 ## Contributing
 
