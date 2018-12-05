@@ -50,5 +50,5 @@ Please read `CODE_OF_CONDUCT.md` for details on our code of conduct, and the pro
 `feature/registration-actions`, `bugfix/fix-infite-loop`
 
 ## Authors
-* **Jordan Marsaw** - *Front end developer* - [blokboy](https://github.com/blokboy)
-* **Allen Hai** - *Back end developer* - [coetry](https://github.com/coetry)
+* **Jordan Marsaw** - *Developer* - [blokboy](https://github.com/blokboy)
+* **Allen Hai** - *Devsigner* - [coetry](https://github.com/coetry)
