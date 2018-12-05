@@ -5,11 +5,11 @@ module.exports = {
   development: {
   client: 'sqlite3',
   connection: {
-    filename: '../database.sqlite3'
+    filename: '../db/betty.sqlite3'
   },
   useNullAsDefault: true,
   migrations: {
-    directory: '../migrations',
+    directory: '../db/migrations',
     tableName: 'migrations'
   },
   seeds: { directory: '../seeds' }
