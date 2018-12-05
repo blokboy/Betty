@@ -51,4 +51,4 @@ Please read `CODE_OF_CONDUCT.md` for details on our code of conduct, and the pro
 
 ## Authors
 * **Jordan Marsaw** - *Front end developer* - [blokboy](https://github.com/blokboy)
-* **Allen Hai** - *Back end developer* - [eeevvaaa](https://github.com/coetry)
+* **Allen Hai** - *Back end developer* - [coetry](https://github.com/coetry)
