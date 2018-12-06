@@ -13,7 +13,7 @@ An SMS text based application that doesn't talk back.
 1. Fork Betty and `clone` to your local machine.
 2. From your console, cd into [/server](/server) and type `npm install` to install the server dependencies.
 3. Type `npm start` to run the included script `nodemon server.js` from [package.json](package.json).
-4. CD into [/reactapp](/reactapp).
+4. CD into [/client](/client).
 5. Type `npm install` to install ReactJS/Redux dependencies.
 6. Type `npm start` to run the developer client.
 
