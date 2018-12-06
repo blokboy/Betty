@@ -1,4 +1,4 @@
-const db = require('knex')(require('../config/knexfile').development)
+const db = require('knex')(require('../knexfile').development)
 const authy = require('authy')(require('../config').authyKey)
 
 module.exports = {

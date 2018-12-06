@@ -5,14 +5,14 @@ module.exports = {
   development: {
   client: 'sqlite3',
   connection: {
-    filename: '../db/betty.sqlite3'
+    filename: './db/betty.sqlite3'
   },
   useNullAsDefault: true,
   migrations: {
-    directory: '../db/migrations',
+    directory: './db/migrations',
     tableName: 'migrations'
   },
-  seeds: { directory: '../seeds' }
+  seeds: { directory: './seeds' }
   },
 
   staging: {

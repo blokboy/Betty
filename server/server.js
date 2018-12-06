@@ -8,11 +8,12 @@ server.post('/register', async (req, res) => {
   const {username, phoneNumber} = req.body
   console.log(username, phoneNumber)
   User.register(username, phoneNumber, (err, verification) => {
+    console.log(verification)
     if (err) {
       console.log(err)
       res.status(500).json({error: err})
     }
-    res.status(200).json({user})
+    res.status(200).json({verification})
   })
 })
 
