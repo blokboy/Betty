@@ -1,12 +1,13 @@
 const express = require('express')
 const server = express()
-const User = require('../models/User')
+const User = require('./models/User')
 
 server.use(express.json())
 
 server.post('/register', async (req, res) => {
-  const {email, phone} = req.body
-  User.register(email, phone, (err, user) => {
+  const {username, phoneNumber} = req.body
+  console.log(username, phoneNumber)
+  User.register(username, phoneNumber, (err, verification) => {
     if (err) {
       console.log(err)
       res.status(500).json({error: err})

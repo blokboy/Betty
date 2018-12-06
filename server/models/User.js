@@ -2,17 +2,18 @@ const db = require('knex')(require('../config/knexfile').development)
 const authy = require('authy')(require('../config').authyKey)
 
 module.exports = {
-  register: (email, phone, cb) => {
-    // default country code: US(1)
-    authy.register_user(email, phone, 1, async (err, {user}) => {
-      if (err) cb(err)
-
-      const userId = await db('users').insert({email, phone, authyId: user.id})
-
-      authy.request_sms(user.id, true, (err, res) => {
-        if (err) cb(err)
-        cb(null, {userId, authyId: user.id, email, phone, token: res})
-      })
-    })
+  register: async (username, phone_number, cb) => {
+    console.log('User.register(...)')
+    const id = await db('users').insert({username, phone_number})
+    console.log('User ID:', id)
+    console.log('verifying phone number ...')
+    authy
+      .phones()
+      .verification_start(
+        phone_number,
+        '1',
+        {via: 'sms', locale: 'en', code_length: '6'},
+        cb
+      )
   }
 }
