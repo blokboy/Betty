@@ -1,21 +1,23 @@
-// DEPENDENCIES
-const express = require('express');
+const express = require('express')
+const server = express()
+const User = require('./models/User')
 
-// SERVER
-const server = express();
+server.use(express.json())
 
-// MIDDLEWARE
-const configureMiddleware = require('./middleware/middleware');
+server.post('/register', async (req, res) => {
+  const {username, phoneNumber} = req.body
+  console.log(username, phoneNumber)
+  User.register(username, phoneNumber, (err, verification) => {
+    console.log(verification)
+    if (err) {
+      console.log(err)
+      res.status(500).json({error: err})
+    }
+    res.status(200).json({verification})
+  })
+})
 
-configureMiddleware(server);
-
-// ROUTES
-const exampleRoutes = require('./routes/exampleRoutes.js');
-
-server.use('/api/example', exampleRoutes);
-
-// PORT
-const port = 5000;
+const port = 5000
 server.listen(port, () => {
-	console.log(`\n=== Listening on http://localhost:${port} ===\n`);
-});
+  console.log(`\n=== Listening on http://localhost:${port} ===\n`)
+})

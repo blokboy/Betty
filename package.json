@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "authy": "^1.4.0"
+  }
+}
