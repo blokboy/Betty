@@ -29,7 +29,7 @@ export default class RegistrationPage extends Component {
     axios
       .post("http://localhost:5000/register", { username, phoneNumber })
           .then(res => {
-            console.log(`You have successfully registered as ${username} with the number: ${phonenumber}!`)
+            console.log(`You have successfully registered as ${username} with the number: ${phoneNumber}!`)
           })
           .catch(e => {
             console.log(e)
