@@ -19,13 +19,14 @@ server.post('/register', async (req, res) => {
 
 server.post('/verify', async (req, res) => {
   const {verificationCode} = req.body
-  const phoneNumber = req.headers.phoneNumber || '281-818-7900'
-  User.verify(phoneNumber, verificationCode, (err, {success}) => {
+  console.log(req.headers)
+  const phoneNumber = req.headers.phonenumber || '281-818-7900'
+  User.verify(phoneNumber, verificationCode, (err, verificationSuccess) => {
     if (err) {
       console.log(err)
       res.status(500).json({error: err})
     }
-    success ? res.status(200).json({success}) : res.status(401).json({success})
+    res.status(200).json({verificationSuccess})
   })
 })
 
