@@ -21,13 +21,13 @@ export default class RegistrationPage extends Component {
   submit = e => {
     e.preventDefault()
     const username = this.state.username
-    const phonenumber = this.state.phoneNumber
+    const phoneNumber = this.state.phoneNumber
     console.log(username)
-    console.log(phonenumber)
+    console.log(phoneNumber)
 
     //on the front end disable the submit button if all fields aren't entered
     axios
-      .post("http://localhost:5000/register", { username, phonenumber })
+      .post("http://localhost:5000/register", { username, phoneNumber })
           .then(res => {
             console.log(`You have successfully registered as ${username} with the number: ${phonenumber}!`)
           })
