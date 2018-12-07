@@ -1,23 +1,70 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
-import LandingPage from './Components/LandingPage.js';
-import RegistrationPage from './Components/RegistrationPage.js';
-import LoginPage from './Components/LoginPage.js';
-import VerifyModal from './Components/VerifyModal.js';
+import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
+import logo from './logo.svg'
+import './App.css'
+import LandingPage from './Components/LandingPage.js'
+import RegistrationPage from './Components/RegistrationPage.js'
+import LoginPage from './Components/LoginPage.js'
+import VerifyModal from './Components/VerifyModal.js'
+import axios from 'axios'
 
 class App extends Component {
+  state = {
+    username: '',
+    phoneNumber: ''
+  }
+  updateRegistrationInfo = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+  submitRegistration = e => {
+    e.preventDefault()
+    const username = this.state.username
+    const phoneNumber = this.state.phoneNumber
+    console.log(username)
+    console.log(phoneNumber)
+
+    //on the front end disable the submit button if all fields aren't entered
+    axios
+      .post('http://localhost:5000/register', {username, phoneNumber})
+      .then(res => {
+        console.log(
+          `You have successfully registered as ${username} with the number: ${phoneNumber}!`
+        )
+      })
+      .catch(e => {
+        console.log(e)
+      })
+    //window.location.reload()
+  }
+
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={ LandingPage } />
-        <Route path="/login" component={ LoginPage } />
-        <Route path="/registration" component={ RegistrationPage } />
-        <Route path="/verify" component={ VerifyModal } />
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route
+          path="/registration"
+          render={props => (
+            <RegistrationPage
+              {...props}
+              username={this.state.username}
+              phoneNumber={this.state.phoneNumber}
+              submitRegistration={this.submitRegistration}
+              updateRegistrationInfo={this.updateRegistrationInfo}
+            />
+          )}
+        />
+        <Route
+          path="/verify"
+          render={props => (
+            <VerifyModal {...props} phoneNumber={this.state.phoneNumber} />
+          )}
+        />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
