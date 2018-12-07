@@ -5,6 +5,7 @@ import './App.css';
 import LandingPage from './Components/LandingPage.js';
 import RegistrationPage from './Components/RegistrationPage.js';
 import LoginPage from './Components/LoginPage.js';
+import VerifyModal from './Components/VerifyModal.js';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Route exact path="/" component={ LandingPage } />
         <Route path="/login" component={ LoginPage } />
         <Route path="/registration" component={ RegistrationPage } />
+        <Route path="/verify" component={ VerifyModal } />
       </div>
     );
   }
