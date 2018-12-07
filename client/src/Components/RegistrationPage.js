@@ -20,21 +20,21 @@ export default class RegistrationPage extends Component {
 
   submit = e => {
     e.preventDefault()
-    const username = this.state.usernameText
-    const phoneNumber = this.state.phoneNumber
+    const username = this.state.username
+    const phonenumber = this.state.phoneNumber
+    console.log(username)
+    console.log(phonenumber)
 
-    //on the front end disable the submit button if all fields are entered and password !== passwordConf
-    if(username && phoneNumber.length < 12) {
-        axios
-          .post("http://localhost:3333/registration", { username, phoneNumber })
-          .then(() => {
-            console.log(`You have successfully registered as ${username} with the number: ${phoneNumber}!`)
+    //on the front end disable the submit button if all fields aren't entered
+    axios
+      .post("http://localhost:5000/register", { username, phonenumber })
+          .then(res => {
+            console.log(`You have successfully registered as ${username} with the number: ${phonenumber}!`)
           })
           .catch(e => {
             console.log(e)
           })
-      }
-    window.location.reload()
+       //window.location.reload()
   }
 
   render() {
@@ -90,9 +90,9 @@ export default class RegistrationPage extends Component {
                       <input
                         class="input is-success"
                         type="text"
-                        name="usernameText"
+                        name="username"
                         placeholder="Enter Your Username"
-                        value={this.state.usernameText}
+                        value={this.state.username}
                         onChange={this.updateInputText}
                        />
                        <span class="icon is-small is-left">
@@ -111,8 +111,8 @@ export default class RegistrationPage extends Component {
                        <input
                          class="input"
                          type="text"
-                         name="passwordText"
-                         placeholder="Enter Your Password"
+                         name="phoneNumber"
+                         placeholder="Enter Your Phone Number (XXX-XXX-XXXX)"
                          value={this.state.phoneNumber}
                          onChange={this.updateInputText}
                        />
