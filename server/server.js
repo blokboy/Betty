@@ -17,6 +17,19 @@ server.post('/register', async (req, res) => {
   })
 })
 
+server.post('/verify', async (req, res) => {
+  const {verificationCode} = req.body
+  const phoneNumber = req.headers.phoneNumber || '281-818-7900'
+  User.verify(phoneNumber, verificationCode, (err, {success}) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({error: err})
+    }
+    console.log(('VERIFICATION SUCCESS:', success))
+    res.status(200).json({success})
+  })
+})
+
 const port = 5000
 server.listen(port, () => {
   console.log(`\n=== Listening on http://localhost:${port} ===\n`)
