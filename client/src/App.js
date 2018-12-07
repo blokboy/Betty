@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 import LandingPage from './Components/LandingPage.js'
@@ -32,11 +32,11 @@ class App extends Component {
         console.log(
           `You have successfully registered as ${username} with the number: ${phoneNumber}!`
         )
+        this.props.history.push('/verify')
       })
       .catch(e => {
         console.log(e)
       })
-    //window.location.reload()
   }
 
   render() {
@@ -67,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
