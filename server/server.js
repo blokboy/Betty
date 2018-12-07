@@ -25,8 +25,7 @@ server.post('/verify', async (req, res) => {
       console.log(err)
       res.status(500).json({error: err})
     }
-    console.log(('VERIFICATION SUCCESS:', success))
-    res.status(200).json({success})
+    success ? res.status(200).json({success}) : res.status(401).json({success})
   })
 })
 
