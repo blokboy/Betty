@@ -15,5 +15,8 @@ module.exports = {
         {via: 'sms', locale: 'en', code_length: '6'},
         cb
       )
+  },
+  verify: (phoneNumber, verificationCode, cb) => {
+    authy.phones().verification_check(phoneNumber, '1', verificationCode, cb)
   }
 }
