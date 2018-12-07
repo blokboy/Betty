@@ -1,8 +1,9 @@
 const express = require('express')
+const cors = require('cors')
 const server = express()
 const User = require('./models/User')
 
-server.use(express.json())
+server.use(express.json(), cors())
 
 server.post('/register', async (req, res) => {
   const {username, phoneNumber} = req.body
