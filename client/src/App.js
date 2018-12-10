@@ -13,7 +13,7 @@ class App extends Component {
     username: '',
     phoneNumber: ''
   }
-  updateRegistrationInfo = e => {
+  updateInfo = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -38,12 +38,38 @@ class App extends Component {
         console.log(e)
       })
   }
+  submitLogin = e => {
+    e.preventDefault()
+    const username = this.state.username
+    const phoneNumber = this.state.phoneNumber
+
+    axios
+      .post('http://localhost:5000/login', {username, phoneNumber})
+      .then(res => {
+        console.log('Check your phone for a verification text to login!')
+        this.props.history.push('/verify')
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
 
   render() {
     return (
       <div className="App">
         <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />
+        <Route
+          path="/login"
+          render={props => (
+            <LoginPage
+              {...props}
+              username={this.state.username}
+              phoneNumber={this.state.phoneNumber}
+              submitLoginInfo={this.submitLogin}
+              updateLoginInfo={this.updateInfo}
+            />
+          )}
+        />
         <Route
           path="/registration"
           render={props => (
@@ -52,7 +78,7 @@ class App extends Component {
               username={this.state.username}
               phoneNumber={this.state.phoneNumber}
               submitRegistration={this.submitRegistration}
-              updateRegistrationInfo={this.updateRegistrationInfo}
+              updateRegistrationInfo={this.updateInfo}
             />
           )}
         />
