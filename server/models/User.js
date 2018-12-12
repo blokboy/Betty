@@ -19,5 +19,15 @@ module.exports = {
   },
   verify: (phoneNumber, verificationCode, cb) => {
     authy.phones().verification_check(phoneNumber, '1', verificationCode, cb)
+  },
+  sendMessage: async (message, successCallback, errCallback) => {
+    console.log('User.sendMessage(...)')
+    console.log(message)
+  }
+  login: async (username, phone_number, cb) => {
+    console.log('User.login(...)')
+    console.log(username, phone_number)
+    const id = await db('users')
+    console.log('User ID:', id)
   }
 }
