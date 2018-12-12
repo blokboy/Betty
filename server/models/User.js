@@ -23,11 +23,21 @@ module.exports = {
   sendMessage: async (message, successCallback, errCallback) => {
     console.log('User.sendMessage(...)')
     console.log(message)
-  }
-  login: async (username, phone_number, cb) => {
+  },
+  login: async (phone_number, cb) => {
     console.log('User.login(...)')
-    console.log(username, phone_number)
-    const id = await db('users')
-    console.log('User ID:', id)
+    console.log(phone_number)
+    const user = await db('users').where({phone_number})
+    if (user) {
+      console.log('USER:', user)
+      authy
+        .phones()
+        .verification_start(
+          phone_number,
+          '1',
+          {via: 'sms', locale: 'en', code_length: '6'},
+          cb
+        )
+    }
   }
 }

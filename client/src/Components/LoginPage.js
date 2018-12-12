@@ -70,27 +70,6 @@ export default class LoginPage extends Component {
               <br />
               <div className="registration-form" style={styles.loginForm}>
                 <div className="field">
-                  <label className="label">Username</label>
-                  <div className="control has-icons-left has-icons-right">
-                    <input
-                      className="input is-success"
-                      type="text"
-                      name="username"
-                      placeholder="Enter Your Username"
-                      value={this.props.username}
-                      onChange={this.props.updateLoginInfo}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-user" />
-                    </span>
-                    <span className="icon is-small is-right">
-                      <i className="fas fa-check" />
-                    </span>
-                  </div>
-                  <p className="help is-success">This username is available</p>
-                </div>
-
-                <div className="field">
                   <label className="label">Phone Number</label>
                   <div className="control">
                     <input
@@ -101,15 +80,6 @@ export default class LoginPage extends Component {
                       value={this.props.phoneNumber}
                       onChange={this.props.updateLoginInfo}
                     />
-                  </div>
-                </div>
-
-                <div className="field">
-                  <div className="control">
-                    <label className="checkbox">
-                      <input type="checkbox" />I agree to the{' '}
-                      <a href="#">terms and conditions</a>
-                    </label>
                   </div>
                 </div>
 
