@@ -42,12 +42,12 @@ class App extends Component {
   }
   submitLogin = e => {
     e.preventDefault()
-    const username = this.state.username
-    const phoneNumber = this.state.phoneNumber
-
+    const {phoneNumber} = this.state
+    console.log('logging in ...')
     axios
-      .post('http://localhost:5000/login', {username, phoneNumber})
+      .post('http://localhost:5000/login', {phoneNumber})
       .then(res => {
+        console.log(res)
         console.log('Check your phone for a verification text to login!')
         this.props.history.push('/verify')
       })
@@ -90,12 +90,7 @@ class App extends Component {
             <VerifyModal {...props} phoneNumber={this.state.phoneNumber} />
           )}
         />
-        <Route
-          path="/dashboard"
-          render={props => (
-            <Dashboard {...props} />
-          )}
-        />
+        <Route path="/dashboard" render={props => <Dashboard {...props} />} />
       </div>
     )
   }
