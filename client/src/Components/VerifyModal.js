@@ -23,25 +23,24 @@ export default class VerifyModal extends Component {
     e.preventDefault()
     const verificationCode = this.state.verificationCode
     const isVerified = this.state.isVerified
+    console.log('verifying ...')
     if (this.props.phoneNumber) {
       axios
-        .post(
-          'http://localhost:5000/verify',
-          {verificationCode},
-          {
-            headers: {
-              phonenumber: this.props.phoneNumber
-            }
-          }
-        )
+        .post('http://localhost:5000/verify', {
+          verificationCode,
+          phoneNumber: this.props.phoneNumber
+        })
         .then(res => {
+          console.log(res)
+          if (res.data.verificationSuccess.success) {
+            this.props.history.push('/dashboard')
+          }
           console.log('Phone Verified!')
         })
         .catch(e => {
           console.log(e)
         })
     }
-    window.location.reload()
   }
 
   render() {

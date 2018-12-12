@@ -32,6 +32,7 @@ class App extends Component {
         console.log(
           `You have successfully registered as ${username} with the number: ${phoneNumber}!`
         )
+        console.log(res)
         this.props.history.push('/verify')
       })
       .catch(e => {
