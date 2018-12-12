@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import 'bulma/css/bulma.css'
 
-export default className LandingPage extends Component {
+export default class LandingPage extends Component {
   render() {
     return(
       <div className="hero-container">

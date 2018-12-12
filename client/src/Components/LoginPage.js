@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import 'bulma/css/bulma.css'
 
-export default className LoginPage extends Component {
+export default class LoginPage extends Component {
   constructor(props) {
     super(props)
   }

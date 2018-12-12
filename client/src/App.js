@@ -6,6 +6,7 @@ import LandingPage from './Components/LandingPage.js'
 import RegistrationPage from './Components/RegistrationPage.js'
 import LoginPage from './Components/LoginPage.js'
 import VerifyModal from './Components/VerifyModal.js'
+import Dashboard from './Components/Dashboard.js'
 import axios from 'axios'
 
 class App extends Component {
@@ -87,6 +88,12 @@ class App extends Component {
           path="/verify"
           render={props => (
             <VerifyModal {...props} phoneNumber={this.state.phoneNumber} />
+          )}
+        />
+        <Route
+          path="/dashboard"
+          render={props => (
+            <Dashboard {...props} />
           )}
         />
       </div>

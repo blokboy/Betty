@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import 'bulma/css/bulma.css'
 
-export default className VerifyModal extends Component {
+export default class VerifyModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
