@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import 'bulma/css/bulma.css'
 
-export default class VerifyModal extends Component {
+export default className VerifyModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,24 +46,24 @@ export default class VerifyModal extends Component {
 
   render() {
     return (
-      <div class="modal is-active">
-        <div class="modal-background">
+      <div className="modal is-active">
+        <div className="modal-background">
           <RegistrationPage />
         </div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title">
               We Sent A Verification Code To Your Phone!
             </p>
             <Link to="/registration">
-              <button class="delete" aria-label="close" />
+              <button className="delete" aria-label="close" />
             </Link>
           </header>
 
-          <section class="modal-card-body">
-            <label class="label">Verification Code</label>
+          <section className="modal-card-body">
+            <label className="label">Verification Code</label>
             <input
-              class="input is-rounded is-info"
+              className="input is-rounded is-info"
               type="text"
               placeholder="Enter your 6 digit code here"
               name="verificationCode"
@@ -71,11 +71,11 @@ export default class VerifyModal extends Component {
               onChange={this.updateInputText}
             />
 
-            <footer class="modal-card-foot">
-              <button class="button is-success" onClick={this.submit}>
+            <footer className="modal-card-foot">
+              <button className="button is-success" onClick={this.submit}>
                 Verify Code
               </button>
-              <button class="button">
+              <button className="button">
                 <Link to="/registration">Cancel</Link>
               </button>
             </footer>
