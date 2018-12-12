@@ -32,10 +32,10 @@ server.post('/verify', async (req, res) => {
 })
 
 server.post('/login', async (req, res) => {
-  const {username, phoneNumber} = req.body
-  User.login(username, phoneNumber, (err, verification) => {
-      console.log(verification)
-    if(err) {
+  const {phoneNumber} = req.body
+  User.login(phoneNumber, (err, verification) => {
+    console.log(verification)
+    if (err) {
       console.log(err)
       res.status(500).json({error: err})
     }
