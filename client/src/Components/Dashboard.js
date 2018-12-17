@@ -39,6 +39,11 @@ export default class Dashboard extends Component {
         marginTop: '20px'
       },
       searchBar: {
+        width: '200px',
+        marginLeft: '20px'
+      },
+      menu: {
+        paddingTop: '60px',
         width: '300px'
       }
     }
@@ -48,23 +53,37 @@ export default class Dashboard extends Component {
       <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"/>
 
-      <div className="column is-one-fifth" style={styles.sideBar}>
-      <p className="title">
-        Betty | <span className="icon"><i className="fas fa-sticky-note"></i></span>
-      </p>
-      <div className="field has-addons">
-        <div className="control" style={styles.searchBar}>
-          <input className="input" type="text" placeholder="Find a Note"  />
+      <aside class="menu" style={styles.menu}>
+      <div class="field has-addons">
+        <div class="control" style={styles.searchBar}>
+          <input class="input" type="text" placeholder="Find a Task"  />
         </div>
-        <div className="control">
-          <a className="button is-info">
+        <div class="control">
+          <a class="button is-info">
             Search
           </a>
         </div>
       </div>
-      <a className="button is-normal is-fullwidth">Account Settings</a>
+        <p class="menu-label" style={styles.menu}>
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a>Dashboard</a></li>
+          <li><a>Calendar</a></li>
+          <li><a>Reminders</a></li>
+          <li><a>Notifications</a></li>
+        </ul>
+        <p class="menu-label" style={styles.menu}>
+          Administration
+        </p>
+        <ul class="menu-list">
+          <li><a>Betty Settings</a></li>
+          <li><a>Account Settings</a></li>
+          <li><a>Cloud Storage Environment Settings</a></li>
+          <li><a>Authentication</a></li>
+        </ul>
+      </aside>
 
-      </div>
         <section className="hero is-info is-fullheight" style={styles.dashboard}>
 
           <div className="hero-head" style={styles.header}>
@@ -77,7 +96,7 @@ export default class Dashboard extends Component {
           </div>
 
           <div className="hero-body">
-          
+
           </div>
 
           <div className="hero-foot">
